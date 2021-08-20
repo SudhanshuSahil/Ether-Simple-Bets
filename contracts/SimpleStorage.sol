@@ -54,6 +54,26 @@ contract SimpleStorage {
 
   }
 
+  function Match_7() public payable returns (uint){
+    require(address(this).balance >= msg.value, "ether nhi h");
+    bets.push(Bet(msg.sender, msg.value));
+
+    uint rand = random(14);
+
+    if(rand <= 7) {
+      return(0);
+    }
+    else if(rand == 7){
+      return(0);
+    }
+    else {
+      uint xx = msg.value * 2;
+      account.transfer(xx);
+      return(1);
+    }
+
+  }
+
   function set(uint x) public payable {
     storedData = x;
     store_x = random(uint(x));
